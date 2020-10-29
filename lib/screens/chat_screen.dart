@@ -41,6 +41,7 @@ class ChatScreen extends StatelessWidget {
         ],
       ),
       body: Container(
+        color: Theme.of(context).backgroundColor,
         child: Column(
           children: <Widget>[
             Expanded(

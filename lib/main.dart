@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Chat',
       theme: ThemeData(
         primarySwatch: Colors.lightGreen,
-        backgroundColor: Colors.lightGreen,
+        backgroundColor: null,
         accentColor: Colors.amber,
         accentColorBrightness: Brightness.light,
         buttonTheme: ButtonTheme.of(context).copyWith(
