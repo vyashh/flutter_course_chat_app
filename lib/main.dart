@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import './screens/spash_screen.dart';
 import './screens/auth_screen.dart';
 import './screens/chat_screen.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Chat',
       theme: ThemeData(
         primarySwatch: Colors.lightGreen,
-        backgroundColor: null,
+        backgroundColor: Colors.white10,
         accentColor: Colors.amber,
         accentColorBrightness: Brightness.light,
         buttonTheme: ButtonTheme.of(context).copyWith(
@@ -27,6 +28,9 @@ class MyApp extends StatelessWidget {
         stream: FirebaseAuth
             .instance.onAuthStateChanged, // haalt de token status live op.
         builder: (ctx, userSnapshot) {
+          if (userSnapshot.connectionState == ConnectionState.waiting) {
+            return SplashScreen();
+          }
           if (userSnapshot.hasData) {
             return ChatScreen();
           }
